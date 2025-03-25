@@ -13,5 +13,9 @@ export const routes: Routes = [
   {
     path: 'lista',
     loadComponent: () => import('./lista/lista.page').then( m => m.ListaPage)
+  },  {
+    path: 'password-reset',
+    loadComponent: () => import('./password-reset/password-reset.page').then( m => m.PasswordResetPage)
   },
+
 ];
