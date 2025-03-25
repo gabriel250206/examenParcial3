@@ -1,0 +1,45 @@
+<ion-content padding style="background-color: black">
+  <h2 style="color: yellow">Directorio</h2>
+  <input #nameInput type="text" placeholder="Nombre" />
+  <input #numtelInput type="text" placeholder="Apellido" />
+  <input #dateInput type="date" placeholder="Fecha de nacimiento" />
+
+  <button
+    style="color: blue"
+    (click)="addItem(nameInput.value, numtelInput.value, dateInput.value); nameInput.value = ''; numtelInput.value = '';"
+  >
+    Agregar
+  </button>
+
+  <table
+    border="1"
+    style="margin-top: 20px; width: 100%; text-align: left; color: white"
+  >
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Cumpleanios</th>
+        <th>Editar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of tasks$ | async">  
+    <td>{{ item.id }}</td>
+    <td><input type="text" [(ngModel)]="item.name" /></td>
+    <td><input type="text" [(ngModel)]="item.numtel" /></td>
+    <td><input type="date" [(ngModel)]="item.date" /></td>
+    <td>
+      <button (click)="deleteItem(item.id!)"> Eliminar</button>
+      <button (click)="editTask(item.id!, item.name, item.numtel,item.date)">Guardar</button>
+    </td>
+  </tr>
+    </tbody>
+  </table>
+  <div>
+    <button (click)="logout()">
+      logout  
+    </button>
+  </div>
+</ion-content>
