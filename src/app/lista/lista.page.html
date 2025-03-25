@@ -1,16 +1,16 @@
 <ion-content padding style="background-color: black">
   <h2 style="color: yellow">Directorio</h2>
-  <input #nameInput type="text" placeholder="Nombre" />
-  <input #lnameInput type="text" placeholder="Apellido" />
-  <input #matriculaInput type="number" placeholder="matricula" />
-  <input #correoInput type="email" placeholder="correo" />
-  <input #DAMMInput type="number" placeholder="califDAMM" />
-  <input #OCAInput type="number" placeholder="califOCA" />
-  <input #MATEInput type="number" placeholder="califMATE" />
-  <input #PMPInput type="number" placeholder="califPMP" />
-  <input #M3DInput type="number" placeholder="califM3D" />
+  <input #nameInput type="text" placeholder="Nombre" style=" border-color: white; border: solid;width: 200px;"/>
+  <input #lnameInput type="text" placeholder="Apellido" style="border-color: white;border:solid; width: 200px;"/>
+  <input #matriculaInput type="number" placeholder="matricula"style="border-color: white;border:solid; width: 200px;"/> 
+  <input #correoInput type="email" placeholder="correo" style="border-color: white; border:solid;width: 200px;"/>
+  <input #DAMMInput type="number" placeholder="califDAMM"style="border-color: white; border:solid;width: 200px;"/> 
+  <input #OCAInput type="number" placeholder="califOCA" style="border-color: white; border:solid;width: 200px;"/>
+  <input #MATEInput type="number" placeholder="califMATE"style="border-color: white; border:solid;width: 200px;"/> 
+  <input #PMPInput type="number" placeholder="califPMP"style="border-color: white; border:solid;width: 200px;"/> 
+  <input #M3DInput type="number" placeholder="califM3D" style="border-color: white; border:solid;width: 200px;"/>
   <button
-    style="color: blue"
+    style="color: white; border-color: white; border:solid"
     (click)="addItem(nameInput.value, lnameInput.value, matriculaInput.value, correoInput.value, DAMMInput.value, OCAInput.value, MATEInput.value, PMPInput.value, M3DInput.value); nameInput.value = '';  lnameInput.value=''; matriculaInput.value=''; correoInput.value=''; DAMMInput.value=''; OCAInput.value=''; MATEInput.value=''; PMPInput.value=''; M3DInput.value='';"
   >
     Agregar

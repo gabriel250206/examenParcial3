@@ -1,0 +1,86 @@
+ion-content {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    color: yellow;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  input::placeholder{
+    color: cyan;
+  }
+
+  
+  button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: darkblue;
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  /* Estilos para la tabla */
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid white;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: darkgray;
+    color: black;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Botón de logout */
+  div button {
+    background-color: red;
+    font-weight: bold;
+  }
+  
+  div button:hover {
+    background-color: darkred;
+  }
+  
