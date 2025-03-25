@@ -23,48 +23,59 @@ export class ListaPage implements OnInit {
     this.tasks$ = this.taskService.getTasks();
     console.log(this.tasks$);
   }
+
+  validateEmail(email: string): boolean {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailPattern.test(email); 
+  }
   
 
-  addItem(name: string, numtel: string, date:string): void {
-    if (name.trim() && numtel.trim() && date.trim()) {
+  addItem(name: string, lname: string, matricula:string, correo:string, DAMM:string, OCA:string, MATE:string, PMP: string, M3D:string): void {
+    if (name.trim() && lname.trim() && matricula.trim() && correo.trim() && DAMM.trim() && OCA.trim() && MATE.trim() && PMP.trim() && M3D.trim() && this.validateEmail(correo)) {
       const newTask: Task = { 
         name: name.trim(),
-        numtel: numtel.trim(),
-        date: date.trim(),
-        completed: false
+        lname: lname.trim(),
+        matricula: matricula.trim(),
+        correo: correo.trim(),
+        DAMM: DAMM.trim(),
+        OCA: OCA.trim(),
+        MATE: MATE.trim(),
+        PMP: PMP.trim(),
+        M3D: M3D.trim(),
+        
       };
 
       this.taskService.addTask(newTask)
-        .then(() => console.log('número agregado correctamente'))
-        .catch(error => console.error('Error al agregar número:', error));
+        .then(() => console.log('calificacion agregada correctamente'))
+        .catch(error => console.error('Error al agregar calificacion:', error));
     } else {
-      console.error('El nombre y el día no pueden estar vacíos');
+      console.error('No pueden estar vacíos');
     }
   }
   deleteItem(id: string): void {
     this.taskService.deleteTask(id).then(() => {
-      console.log('número eliminado correctamente');
+      console.log('calificacion eliminado correctamente');
     }).catch(error => {
-      console.error('Error al eliminar número:', error);
+      console.error('Error al eliminar calificacion:', error);
     });
   }
-  editTask(id: string, name: string, numtel: string, date:string): void {
-    this.taskService.updateTask(id, { name, numtel,date }).then(() => {
+  editTask(id: string, name: string, lname: string, matricula:string, correo:string, DAMM:string, OCA:string, MATE:string, PMP: string, M3D:string): void {
+    this.taskService.updateTask(id, { name, lname,matricula,correo, DAMM, OCA, MATE, PMP, M3D}).then(() => {
       console.log('número actualizado correctamente');
     }).catch(error => {
       console.error('Error al actualizar número:', error);
     });
   }
-  toggleCompleted(id: string, event: Event): void {
-    const inputElement = event.target as HTMLInputElement; 
-    const completed = inputElement.checked;
+  // toggleCompleted(id: string, event: Event): void {
+  //   const inputElement = event.target as HTMLInputElement; 
+  //   const completed = inputElement.checked;
   
-    this.taskService.updateTask(id, { completed }).then(() => {
-      console.log('Estado de número actualizado');
-    }).catch(error => {
-      console.error('Error al actualizar estado:', error);
-    });
-  }
+  //   this.taskService.updateTask(id, { completed }).then(() => {
+  //     console.log('Estado de número actualizado');
+  //   }).catch(error => {
+  //     console.error('Error al actualizar estado:', error);
+  //   });
+  // }
   async logout(){
     await this.auth.logout();
     this.router.navigateByUrl('home');
