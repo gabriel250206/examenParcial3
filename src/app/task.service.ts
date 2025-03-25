@@ -6,9 +6,14 @@ export interface Task {
 
   id?: string;
   name: string;
-  numtel: string;
-  date: string;
-  completed: boolean;
+  lname: string;
+  matricula: string;
+  correo: string;
+  DAMM: string;
+  OCA: string;
+  MATE: string;
+  PMP: string;
+  M3D: string;
 }
 
 @Injectable({
