@@ -1,20 +1,273 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Examen
-    </ion-title>
+    <ion-title>Examen Javier Morfín y Gabriel Vallarta</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="login-container">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">LogIn</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="login-form">
+    
+    <div class="form-field">
+      <label for="email">Email address</label>
+      <input type="email" id="email" name="email" class="input-field" placeholder="Enter your email" required />
+    </div>
+
+    
+    <div class="form-field">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" class="input-field" placeholder="Enter your password"
+        required />
+    </div>
+
+    
+    <button type="submit" [disabled]="loginForm.invalid" class="submit-btn">
+      Login
+    </button>
+  </form>
+
+  <div class="buttons-container">
+    <button (click)="onReset()" class="reset-btn">
+      Restablecer Contraseña
+    </button>
+
+    <button (click)="onSignUp()" class="signup-btn">
+      Registrarse
+    </button>
   </div>
 </ion-content>
+
+<style>
+  .login-container {
+    background-color: #f7f7f7;
+    padding: 20px;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-field label {
+    font-size: 14px;
+    color: #555;
+  }
+
+  .input-field {
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #333;
+  }
+
+  .input-field:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+
+  .submit-btn {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .submit-btn:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+
+  .buttons-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .reset-btn,
+  .signup-btn {
+    padding: 12px;
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .reset-btn:hover {
+    background-color: #218838;
+  }
+
+  .signup-btn {
+    background-color: #17a2b8;
+  }
+
+  .signup-btn:hover {
+    background-color: #138496;
+  }
+</style><ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="login-container">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">LogIn</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="login-form">
+    <!-- Campo para el email -->
+    <div class="form-field">
+      <label for="email">Email address</label>
+      <input type="email" id="email" name="email" class="input-field" placeholder="Enter your email" required />
+    </div>
+
+    <!-- Campo para el password -->
+    <div class="form-field">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" class="input-field" placeholder="Enter your password"
+        required />
+    </div>
+
+    <!-- Botón -->
+    <button type="submit" [disabled]="loginForm.invalid" class="submit-btn">
+      Login
+    </button>
+  </form>
+
+  <div class="buttons-container">
+    <button (click)="onReset()" class="reset-btn">
+      Go to Reset
+    </button>
+
+    <button (click)="onSignUp()" class="signup-btn">
+      Go to Sign Up
+    </button>
+  </div>
+</ion-content>
+
+<style>
+  .login-container {
+    background-color: #f7f7f7;
+    padding: 20px;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-field label {
+    font-size: 14px;
+    color: #555;
+  }
+
+  .input-field {
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #333;
+  }
+
+  .input-field:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+
+  .submit-btn {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .submit-btn:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+
+  .buttons-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .reset-btn,
+  .signup-btn {
+    padding: 12px;
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .reset-btn:hover {
+    background-color: #218838;
+  }
+
+  .signup-btn {
+    background-color: #17a2b8;
+  }
+
+  .signup-btn:hover {
+    background-color: #138496;
+  }
+</style>
