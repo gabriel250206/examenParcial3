@@ -13,51 +13,53 @@ import { AuthService } from '../auth.service';
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, CommonModule, FormsModule,],
 })
 export class HomePage {
-
+  email = '';
+  password = '';
 
   constructor(private alertController: AlertController, private router: Router, private auth: AuthService) { }
 
-  ngOnInit() {
-  }
-
-  // Función que se ejecuta al hacer submit del formulario
-  email = '';
-  password = '';
   async onSubmit() {
-    const email = (document.getElementById('email') as HTMLInputElement).value;
-    const password = (document.getElementById('password') as HTMLInputElement).value;
-
     
-    if (await this.auth.login(email, password)) {
+    if (!this.email || !this.password) {
+      const alert = await this.alertController.create({
+        header: 'Error',
+        message: 'Please enter both email and password.',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    }
+
+    if (await this.auth.login(this.email, this.password)) {
       const alert = await this.alertController.create({
         header: 'Login Success',
         message: 'You have logged in successfully!',
         buttons: ['OK'],
       });
-      this.router.navigateByUrl("lista");
       await alert.present();
+      this.router.navigateByUrl("lista");
     } else {
       const alert = await this.alertController.create({
         header: 'Error',
         message: 'Please check your credentials.',
         buttons: ['OK']
       });
-
       await alert.present();
     }
   }
 
+
   validateEmail(email: string): boolean {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailPattern.test(email); // Retorna true si el correo es válido
+    return emailPattern.test(email); 
   }
 
-  // Función para navegación
+ 
   onSignUp() {
     this.router.navigateByUrl("sign-up");
   }
 
-  // Función para navegación
+ 
   onReset() {
     this.router.navigateByUrl("password-reset");
   }
